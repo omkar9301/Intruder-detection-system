@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smart Security</title>
+
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('{{ url_for('static',filename='alberto-rodriguez-santana-i_nIoSCdHv4-unsplash.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .navbar .title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .menu a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar .menu a:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar .menu i {
+            margin-right: 8px;
+        }
+
+        .navbar .icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Rotating container (carousel) */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .carousel-slide h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .carousel-slide p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons Slide */
+        .carousel-slide .program {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .program a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            background-color: #00ff88;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .program a:hover {
+            background-color: #00cc70;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: -50px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            transition: bottom 0.5s ease;
+        }
+
+        .footer:hover {
+            bottom: 0;
+        }
+
+        /* Carousel Animation */
+        @keyframes carousel {
+            0% { transform: translateX(0); }
+            
+            
+            50% { transform: translateX(-100%); }
+            
+            100% { transform: translateX(0); }
+        }
+
+        .carousel {
+            animation: carousel 40s infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- <div class="title">Intruder Detection System</div> -->
+        <div class="menu">
+            <a href="motion"><i class="fas fa-video"></i> Motion Detector</a>
+            <a href="name"><i class="fas fa-user-check"></i> Name Detector</a>
+            <a href="mask"><i class="fas fa-mask"></i> Mask Detector</a>
+            <a href="visitors"><i class="fas fa-mask"></i> Visitors Detector</a>
+            <a href="profile" title="Profile"><i class="fas fa-user"></i></a>
+            <a href="facestore"><i class="fas fa-user-check"></i> Face Strore</a>
+            <a href="facetrain"><i class="fas fa-user-check"></i> Face Train</a>
+            <a href="logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+        <div class="icons">
+            
+            
+        </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Slide 1: Information -->
+            <div class="carousel-slide">
+                <h2>Protecting Your Space</h2>
+                <p>Smart Security is here to ensure your safety with advanced motion detection systems that monitor your premises.</p>
+            </div>
+            <!-- Slide 2: Information -->
+            <div class="carousel-slide">
+                <h2>AI-Powered Name Detection</h2>
+                <p>Utilizing AI technology, our system can detect and verify authorized personnel to maintain a secure environment.</p>
+            </div>
+            <!-- Slide 3: Information -->
+            <div class="carousel-slide">
+                <h2>Mask Detection for Health Safety</h2>
+                <p>Our system ensures health safety by monitoring compliance with mask-wearing regulations, keeping your space secure and healthy.</p>
+            </div>
+            <!-- Slide 4: Buttons -->
+            <div class="carousel-slide">
+                <h2>Choose Your Action</h2>
+                <div class="program">
+                    <a href="motion">Motion Detector</a>
+                    <a href="name">Name Detector</a>
+                    <a href="mask">Mask Detector</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Smart Security. All rights reserved.</p>
+    </div>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

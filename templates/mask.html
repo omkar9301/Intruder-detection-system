@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Smart Security</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+    <style>
+        /* Header Style */
+        header {
+            background-color: #273c75; /* Darker blue for header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Footer Style with animation */
+        footer {
+            background-color: #273c75; /* Matching dark blue for footer */
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            animation: slide-up 1.5s ease-out;
+        }
+
+        @keyframes slide-up {
+            from { transform: translateY(100px); }
+            to { transform: translateY(0); }
+        }
+
+        /* Body background */
+        body {
+            background: linear-gradient(to right, #fc5c7d, #6a82fb);
+            margin: 0;
+            padding-bottom: 50px; /* Adjusted for the footer */
+        }
+
+        /* Navbar customization */
+        .navbar {
+            padding: 0.5rem 1rem;
+            background-color: #192a56; /* Dark blue for navbar */
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #f5f6fa !important; /* Light grey text for better contrast */
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #e1b12c !important; /* Golden color on hover */
+        }
+
+        .navbar-toggler {
+            border-color: #e1b12c; /* Golden color for the navbar toggler */
+        }
+
+        .nav-item {
+            margin-left: 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Row styling for content */
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        /* Frame styling */
+        .frame1 {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 80%; /* Adjusted width */
+        }
+
+        .frame1 img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar with icons and animation -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <a class="navbar-brand" href="#">Project Name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="motion"><i class="fas fa-video"></i> Motion Detection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mask"><i class="fas fa-mask"></i> Mask Detection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="name"><i class="fas fa-id-badge"></i> Name Detection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="row">
+    <div class="frame1">
+        <img src="{{url_for('mask_video')}}" alt="">
+    </div>
+</div>
+
+<!-- Animated Footer -->
+<footer>
+    <p>&copy; 2024 Smart Security System. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
